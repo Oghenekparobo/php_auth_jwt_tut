@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "":"src/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
