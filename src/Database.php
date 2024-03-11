@@ -20,9 +20,6 @@ class Database
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $this->conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
                 $this->conn->setAttribute(PDO::ATTR_STRINGIFY_FETCHES, false);
-
-
-                echo "Database connected successfully.";
             }
 
             return $this->conn;
