@@ -16,3 +16,4 @@ $database = new Database(
     $_ENV["DB_USER"],
     $_ENV["DB_PASS"]
 );
+
