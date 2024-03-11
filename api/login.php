@@ -57,6 +57,6 @@ $payload = [
 
 $JwtController = new Jwt($_ENV["SECRET_KEY"]);
 
-$token =$$JwtController->encode($payload);
+$token =$JwtController->encode($payload);
 
 echo json_encode(["token" => $token]);
