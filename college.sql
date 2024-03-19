@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2024 at 11:54 AM
+-- Generation Time: Mar 19, 2024 at 02:52 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `college`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `refresh_token`
+--
+
+CREATE TABLE `refresh_token` (
+  `token_hash` varchar(255) NOT NULL,
+  `expires_at` int(128) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -69,8 +80,21 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `username`, `password_hash`) VALUES
+(6, 'john doe', 'doe123', '$2y$10$E8It2CKus0uyav45JUD7quFhQAM.Kgc2s.afZmHU/G46ysMeK0Q.y');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `refresh_token`
+--
+ALTER TABLE `refresh_token`
+  ADD PRIMARY KEY (`token_hash`);
 
 --
 -- Indexes for table `students`
@@ -98,7 +122,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
