@@ -49,14 +49,10 @@ if (!password_verify($data['password'], $user['password_hash'])) {
 }
 
 
-$payload = [
-    "id" => $user['id'],
-    "name" => $user["name"]
-];
+require __DIR__ . "/tokens.php";
+
+$refresh_token_gateway = new RefreshTokenGateway($database, $_ENV["SECRET_KEY"]);
+
+$refresh_token_gateway->create($refresh_token, $refresh_token_expiry);
 
 
-$JwtController = new Jwt($_ENV["SECRET_KEY"]);
-
-$token =$JwtController->encode($payload);
-
-echo json_encode(["token" => $token]);
