@@ -19,4 +19,14 @@ if ( ! array_key_exists("token", $data)) {
     exit;
 }
 
-$codec = new Jwt($_ENV["SECRET_KEY"]);
+$JwtController = new Jwt($_ENV["SECRET_KEY"]);
+
+try {
+    $payload = $JwtController->decode($data["token"]);
+    
+} catch (Exception) {
+    
+    http_response_code(400);
+    echo json_encode(["message" => "invalid token"]);
+    exit;
+}
